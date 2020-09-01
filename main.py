@@ -2,6 +2,7 @@ import kivy
 kivy.require('1.0.7')
 from kivy.config import Config
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
+
 from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivymd.uix.button import MDRectangleFlatButton
@@ -102,7 +103,6 @@ kv_string = """
         DrawerList:
             id: md_list
             
-
 Screen:
     NavigationLayout:
         ScreenManager:

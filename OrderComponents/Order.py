@@ -4,7 +4,7 @@ from OrderComponents.Product import Product
 
 
 class Order:
-    def __init__(self, order_num, customer, products, cost, leadtime, order_date, status, comments, origin, email, payment, markup=0.1):
+    def __init__(self, order_num, customer, products, cost, leadtime, order_date, status, comments, origin, email, payment, delivery, markup=0.1):
         self.order_number = order_num
         self.order_date = order_date
         self.customer = customer
@@ -15,8 +15,9 @@ class Order:
         self._customer_price =  float(cost) + (float(markup)*float(cost))
         self.leadtime = leadtime
         self.comments = comments
-        self.origin = origin # Facebook, insta, twitter, WOM
-        self.payment = payment # not payed, 50% deposit, paid in full
+        self.delivery = delivery
+        self.origin = origin 
+        self.payment = payment 
         self.email = email
 
     @property
@@ -47,7 +48,7 @@ class Order:
 
     @classmethod
     def from_db(cls, item, db):
-        return cls(item["name"], item["customer"], item["products"], item["cost"], int(item["leadtime"]), item["orderDate"], item["status"], item["comments"], item["origin"], item["email"], item["payment"],float(item["markup"]))
+        return cls(item["name"], item["customer"], item["products"], item["cost"], int(item["leadtime"]), item["orderDate"], item["status"], item["comments"], item["origin"], item["email"], item["payment"], item["delivery"], float(item["markup"]))
 
     def __str__(self):
         return f"{self.order_number},{self.customer},{self.products},{self.leadtime},{self.comments},{self.markup},{self.order_date}"

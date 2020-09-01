@@ -12,6 +12,15 @@ class DBconfig():
         self.dynamodb = boto3.resource('dynamodb')
         self.table = self.dynamodb.Table('Order_db')
 
+    def load_settings(self):
+        return [i for i in self.table.query(KeyConditionExpression=Key('type').eq("Setting"))["Items"]]
+
+    def get_setting(self, name):
+        try:
+            return self.table.get_item(Key={"name": name, "type": "Setting"})["Item"]["value"]
+        except KeyError:
+            return None
+
     def load_orders(self):
         return [Order.from_db(i, self) for i in self.table.query(KeyConditionExpression=Key('type').eq("Order"))["Items"]]
 
