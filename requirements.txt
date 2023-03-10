@@ -20,7 +20,7 @@ Kivy==1.11.1
 kivy-deps.glew==0.1.12
 kivy-deps.sdl2==0.1.23
 Kivy-Garden==0.1.4
-kivymd==0.104.1
+kivymd==1.1.1
 msgpack==1.0.0
 mysqlclient==2.0.1
 oauthlib==3.1.0
