@@ -10,7 +10,7 @@ distlib==0.3.1
 docutils==0.15.2
 filelock==3.0.12
 firebase==3.0.1
-firebase-admin==4.3.0
+firebase-admin==6.1.0
 grpcio==1.31.0
 httplib2==0.18.1
 idna==2.10
